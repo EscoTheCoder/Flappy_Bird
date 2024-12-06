@@ -51,6 +51,7 @@ void Player::movePlayer(float dt) {
 
     // Apply gravity
     m_velocity_y += m_gravity * delta_time;
+    cout << m_velocity_y<<endl;
 
     // Update vertical position
     m_pos_y += m_velocity_y * delta_time;
@@ -58,6 +59,9 @@ void Player::movePlayer(float dt) {
     // Set the appropriate texture based on the direction of movement
     if (m_velocity_y < 0) {
         m_brush_player.texture = m_state->getFullAssetPath("redbird-downflap.png");
+    }
+    else if (m_velocity_y > 4) {
+        m_brush_player.texture = m_state->getFullAssetPath("red_bird_peftei.png");
     }
     else {
         m_brush_player.texture = m_state->getFullAssetPath("redbird-upflap.png");
